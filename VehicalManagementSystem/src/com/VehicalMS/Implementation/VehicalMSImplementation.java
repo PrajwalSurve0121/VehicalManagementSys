@@ -11,7 +11,7 @@ public class VehicalMSImplementation implements VehicalServiceManager{
 	Vehical v=new Vehical();
 	VehicalType vt=new VehicalType();
 	ServiceRecord sr=new ServiceRecord();
-	VehicalMSImplementation vms=new VehicalMSImplementation();
+	
 	ArrayList<Vehical>list=new ArrayList<>();
 	ArrayList<ServiceRecord>list1=new ArrayList<>();
 
@@ -20,7 +20,7 @@ public class VehicalMSImplementation implements VehicalServiceManager{
 		
 		System.out.println("...........................Please Enter number for adding Vehical...........................");
 		int num=sc.nextInt();
-		for(int i=1;i<num;i++)
+		for(int i=1;i<=num;i++)
 		{
 			System.out.println(".........Enter Vehical Details..............");
 			System.out.println("Enter Vehical Id: ");
@@ -235,12 +235,12 @@ public class VehicalMSImplementation implements VehicalServiceManager{
 		System.out.println("Enter Servicing Record of the Vehical");
 		int num=sc.nextInt();
 		
-		for(int i=1;i<num;i++)
+		for(int i=1;i<=num;i++)
 		{
 			System.out.println("Enter Date of the Servicing");
 			int date=sc.nextInt();
 			System.out.println("Description of Vehical");
-			String desc=sc.nextLine();
+			String desc=sc.next();
 			System.out.println("Enter Cost of Servicing");
 			double cost=sc.nextDouble();
 			Vehical vr=new Vehical(list.get(i).getVehicalID(),list.get(i).getVehicalname(),list.get(i).getModelno(),list.get(i).getType(),list.get(i).getYear(),list.get(i).getMileage());
