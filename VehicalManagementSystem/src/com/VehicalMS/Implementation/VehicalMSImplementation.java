@@ -38,8 +38,8 @@ public class VehicalMSImplementation implements VehicalServiceManager{
 			int vyear=sc.nextInt();
 			System.out.println("Enter Vehical Mileage");
 			int vmileage=sc.nextInt();
-			
-			list.add(new Vehical(vid,vename,modNo,new VehicalType(typeid,vtype),vyear,vmileage));
+			VehicalType vs=new VehicalType(typeid,vtype);
+			list.add(new Vehical(vid,vename,modNo,vs,vyear,vmileage));
 			
 		}
 		return ve;
@@ -233,7 +233,6 @@ public class VehicalMSImplementation implements VehicalServiceManager{
 	@Override
 	public ServiceRecord addServiceRecord(ServiceRecord serRecord) {
 		System.out.println("Enter Servicing Record of the Vehical");
-		Vehical vs=new Vehical();
 		int num=sc.nextInt();
 		
 		for(int i=1;i<num;i++)
@@ -244,13 +243,13 @@ public class VehicalMSImplementation implements VehicalServiceManager{
 			String desc=sc.nextLine();
 			System.out.println("Enter Cost of Servicing");
 			double cost=sc.nextDouble();
-			list1.add(new ServiceRecord(new Vehical(),date,desc,cost));
+			Vehical vr=new Vehical(list.get(i).getVehicalID(),list.get(i).getVehicalname(),list.get(i).getModelno(),list.get(i).getType(),list.get(i).getYear(),list.get(i).getMileage());
+			list1.add(new ServiceRecord(vr,date,desc,cost));
 		}
 
 		
 		return serRecord;
 	}
-
 	@Override
 	public void displayServiceHistory()
 	{
