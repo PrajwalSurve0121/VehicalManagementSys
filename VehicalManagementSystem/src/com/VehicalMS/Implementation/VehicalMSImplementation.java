@@ -1,5 +1,7 @@
 package com.VehicalMS.Implementation;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 import com.VehicalMS.Service.ServiceRecord;
 import com.VehicalMS.Service.Vehical;
 import com.VehicalMS.Service.VehicalServiceManager;
@@ -27,19 +29,30 @@ public class VehicalMSImplementation implements VehicalServiceManager{
 			int vid=sc.nextInt();
 			System.out.println("Enter Vehical Name: ");
 			String vename=sc.next();
+			System.out.println("Enter Vehicle Number Plate");
+			String numberPlate=sc.next();
 			System.out.println("Enter Model Number of Vehical: ");
 			int modNo=sc.nextInt();
+			System.out.println("Enter Vehical Year of Manufacturing");
+			int vyear=sc.nextInt();
+			System.out.println("Enter Vehical Mileage");
+			int vmileage=sc.nextInt();
 			System.out.println("........Enter Vehical Type Details......");
 			System.out.println("ENter Vehical Type ID: ");
 			int typeid=sc.nextInt();
 			System.out.println("Eneter Vehical Type: ");
 			String vtype=sc.next();
-			System.out.println("Enter Vehical Year of Manufacturing");
-			int vyear=sc.nextInt();
-			System.out.println("Enter Vehical Mileage");
-			int vmileage=sc.nextInt();
+//			System.out.println(".........................Enter Servicing Record...............");
+//			System.out.println("Enter Date of Servicing");
+//			String date=sc.next();
+//			System.out.println("Enter Desctription Of Servicing Record");
+//			String desc=sc.next();
+//			System.out.println("Enter Servicing Cost: ");
+//			int cost=sc.nextInt();
 			VehicalType vs=new VehicalType(typeid,vtype);
-			list.add(new Vehical(vid,vename,modNo,vs,vyear,vmileage));
+			ServiceRecord sr=new ServiceRecord();
+			list.add(new Vehical(vid,vename,numberPlate,modNo,vyear,vmileage,vs,sr));
+//			list1.add(new ServiceRecord(k,date,desc,cost));
 			
 		}
 		return ve;
@@ -56,9 +69,7 @@ public class VehicalMSImplementation implements VehicalServiceManager{
 		{
 			for(int i=0;i<list.size();i++)
 			{
-				System.out.println("All Vehicals Details: "+list.get(i).getVehicalID()+" "+list.get(i).getVehicalname()+" "+
-			       list.get(i).getModelno()+" "+list.get(i).getType().getTypeID()+" "+list.get(i).getType().getTypename()+
-			       " "+list.get(i).getMileage()+" "+list.get(i).getYear());
+				System.out.println(list.get(i));
 			}
 		}
 		
@@ -77,7 +88,7 @@ public class VehicalMSImplementation implements VehicalServiceManager{
 		else
 		{
 			boolean ispresent=false;
-			for(int i=1;i<list.size();i++)
+			for(int i=0;i<list.size();i++)
 			{
 				if(list.get(i).getVehicalID()==vid)
 				{
@@ -87,7 +98,7 @@ public class VehicalMSImplementation implements VehicalServiceManager{
 			}
 			if(ispresent==true)
 			{
-				for(int j=1;j<list.size();j++)
+				for(int j=0;j<list.size();j++)
 				{
 					if(list.get(j).getVehicalID()==vid)
 					{
@@ -118,7 +129,7 @@ public class VehicalMSImplementation implements VehicalServiceManager{
 		else
 		{
 			boolean namepresent=false;
-			for(int i=1;i<list.size();i++)
+			for(int i=0;i<list.size();i++)
 			{
 				if(list.get(i).getVehicalname().equalsIgnoreCase(vname))
 				{
@@ -128,13 +139,11 @@ public class VehicalMSImplementation implements VehicalServiceManager{
 			}
 			if(namepresent==true)
 			{
-				for(int j=1;j<list.size();j++)
+				for(int j=0;j<list.size();j++)
 				{
 					if(list.get(j).getVehicalname().equalsIgnoreCase(vname))
 					{
-						System.out.println("Details Based on Vehical Name: "+list.get(j).getVehicalID()+" "+list.get(j).getVehicalname()+" "+
-							       list.get(j).getModelno()+" "+list.get(j).getType().getTypeID()+" "+list.get(j).getType().getTypename()+
-							       " "+list.get(j).getMileage()+" "+list.get(j).getYear());
+						System.out.println(list.get(j));
 					}
 				}
 			}
@@ -158,7 +167,7 @@ public class VehicalMSImplementation implements VehicalServiceManager{
 		else
 		{
 			boolean modelnopre=false;
-			for(int i=1;i<list.size();i++)
+			for(int i=0;i<list.size();i++)
 			{
 				if(list.get(i).getModelno()==mno)
 				{
@@ -168,13 +177,11 @@ public class VehicalMSImplementation implements VehicalServiceManager{
 			}
 			if(modelnopre==true)
 			{
-				for(int j=1;j<list.size();j++)
+				for(int j=0;j<list.size();j++)
 				{
 					if(list.get(j).getModelno()==mno)
 					{
-						System.out.println("Details based on Model Number: "+list.get(j).getVehicalID()+" "+list.get(j).getVehicalname()+" "+
-							       list.get(j).getModelno()+" "+list.get(j).getType().getTypeID()+" "+list.get(j).getType().getTypename()+
-							       " "+list.get(j).getMileage()+" "+list.get(j).getYear());
+						System.out.println(list.get(j));
 					}
 				}
 			}
@@ -200,7 +207,7 @@ public class VehicalMSImplementation implements VehicalServiceManager{
 		else
 		{
 			boolean typename=false;
-			for(int i=1;i<list.size();i++)
+			for(int i=0;i<list.size();i++)
 			{
 				if(list.get(i).getType().getTypename().equalsIgnoreCase(vtypename))
 				{
@@ -210,13 +217,11 @@ public class VehicalMSImplementation implements VehicalServiceManager{
 			}
 			if(typename==true)
 			{
-				for(int j=1;j<list.size();j++)
+				for(int j=0;j<list.size();j++)
 				{
 					if(list.get(j).getType().getTypename().equalsIgnoreCase(vtypename))
 					{
-						System.out.println("Details based on Vehical Tepe name is: "+list.get(j).getVehicalID()+" "+list.get(j).getVehicalname()+" "+
-							       list.get(j).getModelno()+" "+list.get(j).getType().getTypeID()+" "+list.get(j).getType().getTypename()+
-							       " "+list.get(j).getMileage()+" "+list.get(j).getYear());
+						System.out.println(list.get(j));
 					}
 				}
 			}
@@ -231,30 +236,48 @@ public class VehicalMSImplementation implements VehicalServiceManager{
 	}
 
 	@Override
-	public ServiceRecord addServiceRecord(ServiceRecord serRecord) {
+	public int addServiceRecord(int id) {
 		System.out.println("Enter Servicing Record of the Vehical");
-		int num=sc.nextInt();
-		
-		for(int i=1;i<=num;i++)
-		{
-			System.out.println("Enter Date of the Servicing");
-			int date=sc.nextInt();
-			System.out.println("Description of Vehical");
-			String desc=sc.next();
-			System.out.println("Enter Cost of Servicing");
-			double cost=sc.nextDouble();
-			Vehical vr=new Vehical(list.get(i).getVehicalID(),list.get(i).getVehicalname(),list.get(i).getModelno(),list.get(i).getType(),list.get(i).getYear(),list.get(i).getMileage());
-			list1.add(new ServiceRecord(vr,date,desc,cost));
+		System.out.println("Enter Id to add Servicing Record: ");
+		id=sc.nextInt();
+		boolean isPresent=false;
+		for(int i=0;i<list.size();i++)
+		{			
+			if(list.get(i).getVehicalID()==id)
+			{
+				isPresent=true;
+				break;
+			}
 		}
-
-		
-		return serRecord;
+		if(isPresent==true)
+		{
+			for(int j=0;j<list.size();j++)
+			{			
+				if(list.get(j).getVehicalID()==id)
+				{
+					System.out.println("Enter Date of the Servicing");
+					String date=sc.next();
+					System.out.println("Description of Vehical");
+					String desc=sc.next();
+					System.out.println("Enter Cost of Servicing");
+					double cost=sc.nextDouble();
+					list1.add(new ServiceRecord(date,desc,cost));
+				}
+			}
+		}
+		else
+		{
+			System.out.println("Vehical ID Doesn't Exists");
+		}
+		return id;
 	}
+	
+	
 	@Override
 	public void displayServiceHistory()
 	{
 		System.out.println(".....................Display Servicing History..............");
-		if(list.isEmpty())
+		if(list1.isEmpty())
 		{
 			System.out.println("No Servicing Details");
 		}
@@ -262,14 +285,12 @@ public class VehicalMSImplementation implements VehicalServiceManager{
 		{
 			for(int i=0;i<list1.size();i++)
 			{
-				System.out.println("Servicing History is: "+list1.get(i).getVe().getVehicalID()+" "+list1.get(i).getVe().getVehicalname()
-						+" "+list1.get(i).getVe().getType().getTypename()+" "+list1.get(i).getDate()+" "+list1.get(i).getDescription()
-						+" "+list1.get(i).getCost());
-			}
+				System.out.println(list.get(i).getVehicalID()+" "+list.get(i).getVehicalname()+" "+list1.get(i));
+            }
 		}
-		sc.close();		
-		
 	}
+	
+		
 
 	
 }

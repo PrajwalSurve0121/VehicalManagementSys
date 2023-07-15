@@ -35,7 +35,7 @@ public class VehicalManagementSystemMain {
 			break;
 			case 6:vi.searchByVehicalType(name);
 			break;
-			case 7:vi.addServiceRecord(null);
+			case 7:vi.addServiceRecord(choice);
 			break;
 			case 8:vi.displayServiceHistory();
 			break;

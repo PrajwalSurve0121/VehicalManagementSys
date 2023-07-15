@@ -8,7 +8,7 @@ public interface VehicalServiceManager {
 	public String searchByVehicalName(String vname);
 	public int searchByModelno(int mno);
 	public String searchByVehicalType(String vtypename);
-	public ServiceRecord addServiceRecord(ServiceRecord serRecord);
+	public int addServiceRecord(int id);
 	public void displayServiceHistory();
 	
 	

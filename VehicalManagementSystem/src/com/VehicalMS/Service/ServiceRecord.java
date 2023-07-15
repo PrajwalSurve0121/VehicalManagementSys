@@ -2,41 +2,35 @@ package com.VehicalMS.Service;
 
 public class ServiceRecord {
 	
-	private Vehical ve;
-	private int date;
+	private String date;
 	private String description;
 	private double cost;
+	 
 	
 	public ServiceRecord()
 	{
 		
 	}
 
-	public ServiceRecord(Vehical ve, int date, String description, double cost) {
-		this.ve = ve;
+	public ServiceRecord(String date, String description, double cost) {
+		
 		this.date = date;
 		this.description = description;
 		this.cost = cost;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "ServiceRecord [ve=" + ve + ", date=" + date + ", description=" + description + ", cost=" + cost + "]";
+		return "ServiceRecord [date=" + date + ", description=" + description + ", cost=" + cost + "]";
 	}
 
-	public Vehical getVe() {
-		return ve;
-	}
-
-	public void setVe(Vehical ve) {
-		this.ve = ve;
-	}
-
-	public int getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(int date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
